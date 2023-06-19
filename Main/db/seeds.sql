@@ -1,3 +1,4 @@
+USE Departments_db;
 INSERT INTO department (department_name)
 VALUES ('Sales'),
        ('Engineering'),
@@ -29,20 +30,4 @@ VALUES ('John', 'Doe', 1, NULL),
        ('Samantha', 'Rudolph', 9, NULL),
        ('Toby', 'Miller', 10, 9);
 
-SELECT * FROM employee;
-SELECT * FROM role;
-SELECT * FROM department;
-
-SELECT employee.first_name, employee.last_name, role.title, role.salary, department.department_name
-FROM employee
-LEFT JOIN role
-ON employee.role_id = role.id
-LEFT JOIN department
-ON role.department_id = department.id;
-
-SELECT department.department_name, COUNT(*) AS 'Number of Employees'
-FROM role
-LEFT JOIN department
-ON role.department_id = department.id
-ORDER BY 'Number of Employees' DESC;
 
