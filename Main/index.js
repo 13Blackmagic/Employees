@@ -21,80 +21,124 @@ const db = mysql.createConnection(
   console.log(`Connected to the database_db database.`)
 );
 
-const userPrompt = [
-    {
-        type: 'list',
-        name: 'action',
-        message: 'What would you like to do?',
-        choices: [
-            'View all departments',
-            'View all roles',
-            'View all employees',
-            'Add a department',
-            'Add a role',
-            'Add an employee',
-            'Update an employee role',
-            'Exit'
-        ]
-    }
-];
+// const userPrompt = [
+//     {
+//         type: 'list',
+//         name: 'action',
+//         message: 'What would you like to do?',
+//         choices: [
+//             'View all departments',
+//             'View all roles',
+//             'View all employees',
+//             'Add a department',
+//             'Add a role',
+//             'Add an employee',
+//             'Update an employee role',
+//             'Exit'
+//         ]
+//     }
+// ];
 
-const addRolePrompt = [
-    {
-        type: 'input',
-        name: 'title',
-        message: 'What is the title of the role?'
+// const addRolePrompt = [
+//     {
+//         type: 'input',
+//         name: 'title',
+//         message: 'What is the title of the role?'
 
-    },
-    {
-        type: 'input',
-        name: 'salary',
-        message: 'What is the salary of the role?'
+//     },
+//     {
+//         type: 'input',
+//         name: 'salary',
+//         message: 'What is the salary of the role?'
 
-    },
-    {
-        type: 'input',
-        name: 'department_id',
-        message: 'What is the department id of the role?'
+//     },
+//     {
+//         type: 'input',
+//         name: 'department_id',
+//         message: 'What is the department id of the role?'
 
-    }
-];
+//     }
+// ];
 
-const addDepartmentPrompt = [
-    {
-        type: 'input',
-        name: 'name',
-        message: 'What is the name of the department?'
+// const addDepartmentPrompt = [
+//     {
+//         type: 'input',
+//         name: 'name',
+//         message: 'What is the name of the department?'
 
-    }
-];
+//     }
+// ];
 
-const addEmployeePrompt = [
-    {
-        type: 'input',
-        name: 'first_name',
-        message: 'What is the first name of the employee?'
+// const addEmployeePrompt = [
+//     {
+//         type: 'input',
+//         name: 'first_name',
+//         message: 'What is the first name of the employee?'
 
-    },
-    {
-        type: 'input',
-        name: 'last_name',
-        message: 'What is the last name of the employee?'
+//     },
+//     {
+//         type: 'input',
+//         name: 'last_name',
+//         message: 'What is the last name of the employee?'
 
-    },
-    {
-        type: 'input',
-        name: 'role_id',
-        message: 'What is the role id of the employee?'
+//     },
+//     {
+//         type: 'input',
+//         name: 'role_id',
+//         message: 'What is the role id of the employee?'
 
-    },
-    {
-        type: 'input',
-        name: 'manager_id',
-        message: 'What is the manager id of the employee?'
+//     },
+//     {
+//         type: 'input',
+//         name: 'manager_id',
+//         message: 'What is the manager id of the employee?'
 
-    }
-];
+//     }
+// ];
+
+function renderWelcome() {
+    const welcome = `Welcome to the Employee Tracker!`;
+    console.log(welcome);
+console.log(`====================================`);
+
+    return welcome;
+}
+
+function renderMenu() {
+    const menu = `What would you like to do?`;
+    console.log(menu);
+    console.log(`====================================`);
+    return menu;
+}
+
+function renderDepartments() {
+    const departments = `View all departments`;
+    console.log(departments);
+    console.log(`====================================`);
+    return departments;
+}
+
+function renderRoles() {
+    const roles = `View all roles`;
+    console.log(roles);
+    console.log(`====================================`);
+    return roles;
+}
+
+function renderEmployees() {
+    const employees = `View all employees`;
+    console.log(employees);
+    console.log(`====================================`);
+    return employees;
+}
+
+function init() {
+    renderWelcome();
+    renderMenu();
+    renderDepartments();
+    renderRoles();
+    renderEmployees();
+}
 
 
 
