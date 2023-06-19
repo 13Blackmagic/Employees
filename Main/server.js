@@ -1,3 +1,4 @@
+
 const express = require('express');
 // Import and require mysql2
 const mysql = require('mysql2');
@@ -78,6 +79,8 @@ app.delete('/api/department/role/:employee', (req, res) => {
     }
   });
 });
+
+
 // Default response for any other request (Not Found)
 app.use((req, res) => {
   res.status(404).end();
