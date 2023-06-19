@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
-const cTable = require('console.table');
+const addRole = require('./db/roles');
 
 const db = mysql.createConnection(
     {
@@ -50,76 +50,9 @@ class CLI {
             })
 
     }}
+    
 
-    viewDepartments() {
-        const sql = `SELECT * FROM department`;
-        db.query(sql, (err, rows) => {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            console.table(rows);
-            this.run();
-        }
-        )
-    }
-
-    viewRoles() {
-        const sql = `SELECT * FROM roles`;
-        db.query(sql, (err, rows) => {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            console.table(rows);
-            this.run();
-        }
-
-        )
-    }
-
-    viewEmployees() {
-        const sql = `SELECT * FROM employee`;
-        db.query(sql, (err, rows) => {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            console.table(rows);
-            this.run();
-        }
-
-        )
-    }
-
-    addDepartment() {
-        return inquirer.prompt([
-            {
-                type: 'input',
-                name: 'department_name',
-                message: 'What is the name of the department?'
-
-            }
-        ])
-            .then(({ department_name }) => {
-                const sql = `INSERT INTO department (department_name)
-                VALUES (?)`;
-                const params = [department_name];
-
-                db.query(sql, params, (err, result) => {
-                    if (err) {
-                        console.log(err);
-                        return;
-                    }
-                    console.log('Department added!');
-                    this.run();
-                });
-            }
-
-            )
-    }
-
-    addRole() {
+    addRole() 
         return inquirer.prompt([
             {
                 type: 'input',
@@ -155,5 +88,5 @@ class CLI {
                 });
             }
 
-            )
-    }
+            );
+
