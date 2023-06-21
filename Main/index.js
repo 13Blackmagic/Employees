@@ -1,8 +1,146 @@
 
-const express = require('express');
+// const express = require('express');
+const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const PORT = process.env.PORT || 3001;
-const app = express();
+const path = require('path');
+const db = require('./db/connection');
+const inquirer = require('inquirer');
+// const app = express();
+
+const questions = [
+    {
+        type: 'list',
+        name: 'action',
+        message: 'What would you like to do?',
+        choices: [
+            'View all departments',
+            'View all roles',
+            'View all employees',
+            'Add a department',
+            'Add a role',
+            'Add an employee',
+            'Update an employee role',
+            'Exit'
+        ]
+
+    }
+];
+
+const addRolePrompt = [
+    {
+        type: 'input',
+        name: 'title',
+        message: 'What is the title of the role?'
+
+    },
+
+    {
+        type: 'input',
+        name: 'salary',
+        message: 'What is the salary of the role?'
+
+    },
+
+    {
+        type: 'input',
+        name: 'department_id',
+        message: 'What is the department id of the role?'
+
+    }
+];
+
+const addDepartmentPrompt = [
+    {
+        type: 'input',
+        name: 'name',
+        message: 'What is the name of the department?'
+
+    }
+];
+
+const addEmployeePrompt = [
+    {
+        type: 'input',
+        name: 'first_name',
+        message: 'What is the first name of the employee?'
+
+    },
+
+    {
+        type: 'input',
+        name: 'last_name',
+        message: 'What is the last name of the employee?'
+
+    },
+
+    {
+        type: 'input',
+        name: 'role_id',
+        message: 'What is the role id of the employee?'
+
+    },
+
+    {
+
+        type: 'input',
+        name: 'manager_id',
+        message: 'What is the manager id of the employee?'
+
+    }
+];
+
+const updateEmployeeRolePrompt = [
+    {
+        type: 'input',
+        name: 'employee_id',
+        message: 'What is the id of the employee you would like to update?'
+
+    },
+
+    {
+        type: 'input',
+        name: 'role_id',
+        message: 'What is the new role id of the employee?'
+
+    }
+];
+
+const exitPrompt = [
+    {
+        type: 'list',
+        name: 'exit',
+        message: 'Would you like to exit?',
+        choices: [
+            'Yes',
+            'No'
+        ]
+    }
+];
+
+const viewDepartments = () => {
+    const sql = `SELECT * FROM departments`;
+    db.query(sql, (err, result) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.table(result);
+        run();
+    });
+};
+
+const viewRoles = () => {
+    const sql = `SELECT * FROM roles`;
+    db.query(sql, (err, result) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.table(result);
+        run();
+    });
+};
 
 // Express middleware
 app.use(express.urlencoded({ extended: false }));

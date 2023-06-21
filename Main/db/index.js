@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const addRole = require('./db/roles');
+const fs = require('fs');
+const path = require('path');
 
 const db = mysql.createConnection(
     {
@@ -8,10 +10,8 @@ const db = mysql.createConnection(
         password: 'Starwars0819',
     });
 
-class CLI {
+    const questions = [
 
-    run() {
-        return inquirer.prompt([
             {
                 type: 'list',
                 name: 'action',
@@ -27,7 +27,7 @@ class CLI {
                     'Exit'
                 ]
             }
-        ])
+        ]
             .then(({ action }) => {
                 switch (action) {
                     case 'View all departments':
@@ -49,7 +49,17 @@ class CLI {
                 }
             })
 
-    }}
+        viewDepartments() {
+            const sql = `SELECT * FROM departments`;
+            db.query(sql, (err, result) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.table(result);
+                this.run();
+            });
+        }
     
 
     addRole() 
