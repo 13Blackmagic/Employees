@@ -4,8 +4,7 @@ const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const PORT = process.env.PORT || 3001;
 const path = require('path');
-const db = require('./db/connection');
-const inquirer = require('inquirer');
+// const db = require('./db/connection');
 // const app = express();
 
 const questions = [

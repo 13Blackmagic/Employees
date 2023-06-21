@@ -3,12 +3,7 @@ const mysql = require('mysql2');
 const addRole = require('./db/roles');
 const fs = require('fs');
 const path = require('path');
-
-const db = mysql.createConnection(
-    {
-        host: 'localhost',
-        password: 'Starwars0819',
-    });
+const db = require('./db/connection');
 
     const questions = [
 
