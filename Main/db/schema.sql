@@ -8,13 +8,19 @@ CREATE TABLE department (
   department_name VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE role (
+CREATE TABLE roles (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     salary DECIMAL(10, 2) NOT NULL,
     department_id INT NOT NULL,
     FOREIGN KEY (department_id) REFERENCES department (id)
 );
+
+Show tables;
+SELECT "department" as `Table`, COUNT(*) AS `Rows` FROM `department`
+SELECT "role" as `Table`, COUNT(*) AS `Rows` FROM `roles`
+SELECT "employee" as `Table`, COUNT(*) AS `Rows` FROM `employee`
+
 
 CREATE TABLE employee (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -25,8 +31,3 @@ CREATE TABLE employee (
     FOREIGN KEY (role_id) REFERENCES role (id),
     FOREIGN KEY (manager_id) REFERENCES employee (id)
 );
-
-Show tables;
-SELECT "department" as `Table`, COUNT(*) AS `Rows` FROM `department`
-SELECT "role" as `Table`, COUNT(*) AS `Rows` FROM `role`
-SELECT "employee" as `Table`, COUNT(*) AS `Rows` FROM `employee`

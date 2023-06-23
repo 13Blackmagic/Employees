@@ -5,8 +5,8 @@
 const path = require('path');
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
-
 // const db = require('./db/connection');
+const { response } = require('express');
 // const app = express();
 // inquirer.prompt(questions)
 
@@ -24,6 +24,23 @@ const questions = [
 
     }
 ];
+
+// function init() {
+//     inquirer.prompt(questions)
+//     .then(response => {
+//         if (response.questions === 'View all departments') {
+//             viewDepartments();
+//         } else if (response.questions === 'View all roles') {
+//             viewRoles();
+//         } else if (response.questions === 'View all employees') {
+//             viewEmployees();
+//         } else if (response.questions === 'Exit') {
+//             exit();
+//         }
+//     })
+// }
+
+
 run()
 function run() {
     inquirer.prompt(questions)
