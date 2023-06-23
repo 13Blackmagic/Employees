@@ -1,9 +1,9 @@
-DROP DATABASE IF EXISTS Departments_db;
-CREATE DATABASE Departments_db;
+DROP DATABASE IF EXISTS department_db;
+CREATE DATABASE department_db;
 
-USE Departments_db;
+USE department_db;
 
-CREATE TABLE Department (
+CREATE TABLE department (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   department_name VARCHAR(100) NOT NULL
 );
@@ -26,5 +26,7 @@ CREATE TABLE employee (
     FOREIGN KEY (manager_id) REFERENCES employee (id)
 );
 
-
-show tables;
+Show tables;
+SELECT "department" as `Table`, COUNT(*) AS `Rows` FROM `department`
+SELECT "role" as `Table`, COUNT(*) AS `Rows` FROM `role`
+SELECT "employee" as `Table`, COUNT(*) AS `Rows` FROM `employee`

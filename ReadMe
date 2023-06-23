@@ -1,0 +1,18 @@
+# <Employees>
+
+## Description
+
+-This is a way that a manager can look at all of their employees, they will be able to find an employee depending on role, name, or department.
+
+- I wanted to create a way to help managers manage employees.
+- I wanted to be able to make an easy way for a manager to find employees in their system
+- It solves being un organized with employees.
+- I learned a lot in this homework and its my favorite so far being able to create a database and find it easily was my favorite part though
+
+
+- [Installation](#installation)
+
+
+## Installation
+
+-Mysql -u root -p
