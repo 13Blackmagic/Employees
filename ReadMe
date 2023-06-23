@@ -16,3 +16,7 @@
 ## Installation
 
 -Mysql -u root -p
+-source db/schema.sql
+-source db/seeds.sql
+-quit
+-node index.js
