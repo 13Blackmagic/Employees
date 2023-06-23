@@ -3,7 +3,7 @@ CREATE DATABASE department_db;
 
 USE department_db;
 
-CREATE TABLE department (
+CREATE TABLE departments (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   department_name VARCHAR(100) NOT NULL
 );
@@ -13,7 +13,7 @@ CREATE TABLE roles (
     title VARCHAR(100) NOT NULL,
     salary DECIMAL(10, 2) NOT NULL,
     department_id INT NOT NULL,
-    FOREIGN KEY (department_id) REFERENCES department (id)
+    FOREIGN KEY (department_id) REFERENCES departments (id)
 );
 
 Show tables;
@@ -28,6 +28,6 @@ CREATE TABLE employee (
     last_name VARCHAR(100) NOT NULL,
     role_id INT NOT NULL,
     manager_id INT,
-    FOREIGN KEY (role_id) REFERENCES role (id),
+    FOREIGN KEY (role_id) REFERENCES roles (id),
     FOREIGN KEY (manager_id) REFERENCES employee (id)
 );

@@ -165,7 +165,7 @@ function run() {
 // });
 
 const viewDepartments = () => {
-    const sql = `SELECT * FROM department`;
+    const sql = `SELECT * FROM departments`;
     db.query(sql, (err, result) => {
         if (err) {
             console.log(err);
@@ -216,6 +216,60 @@ const db = mysql.createConnection(
   },
   console.log(`Connected to the database_db database.`)
 );
+
+// app.get('/api/employees', (req, res) => {
+//     const sql = `SELECT id, first_name, last_name, role_id, manager_id FROM employees`;
+//     db.query(sql, (err, result) => {
+//         if (err) {
+//             res.status(500).json({ error: err.message });
+//             return;
+//         }
+//         res.json({
+//             message: 'success',
+//             data: result
+//         });
+//     });
+// });
+
+// const exit = () => {
+//     inquirer.prompt(exitPrompt)
+//         .then(({ exit }) => {
+//             if (exit === 'Yes') {
+//                 process.exit();
+//             } else {
+//                 run();
+//             }
+//         });
+// };
+
+// app.get('/api/roles', (req, res) => {
+//     const sql = `SELECT id, title, salary, department_id FROM roles`;
+//     db.query(sql, (err, result) => {
+//         if (err) {
+//             res.status(500).json({ error: err.message });
+//             return;
+//         }
+//         res.json({
+//             message: 'success',
+//             data: result
+//         });
+//     });
+// });
+
+// app.get('/api/departments', (req, res) => {
+//     const sql = `SELECT id, name FROM department`;
+//     db.query(sql, (err, result) => {
+//         if (err) {
+//             res.status(500).json({ error: err.message });
+//             return;
+//         }
+//         res.json({
+//             message: 'success',
+//             data: result
+//         });
+//     });
+// });
+
 
 // const userPrompt = [
 //     {
