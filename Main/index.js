@@ -165,7 +165,7 @@ function run() {
 // });
 
 const viewDepartments = () => {
-    const sql = `SELECT * FROM department_db`;
+    const sql = `SELECT * FROM department`;
     db.query(sql, (err, result) => {
         if (err) {
             console.log(err);
@@ -189,7 +189,7 @@ const viewRoles = () => {
 };
 
 const viewEmployees = () => {
-    const sql = `SELECT * FROM employees`;
+    const sql = `SELECT * FROM employee`;
     db.query(sql, (err, result) => {
         if (err) {
             console.log(err);

@@ -20,6 +20,6 @@ ON role.department_id = department.id
 ORDER BY 'Number of Employees' DESC;
 
 SELECT * FROM employee;
-SELECT * FROM role;
+SELECT * FROM roles;
 SELECT * FROM department;
 
