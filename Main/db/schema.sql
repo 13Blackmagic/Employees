@@ -16,11 +16,6 @@ CREATE TABLE roles (
     FOREIGN KEY (department_id) REFERENCES departments (id)
 );
 
-Show tables;
-SELECT "department" as `Table`, COUNT(*) AS `Rows` FROM `department`
-SELECT "role" as `Table`, COUNT(*) AS `Rows` FROM `roles`
-SELECT "employee" as `Table`, COUNT(*) AS `Rows` FROM `employee`
-
 CREATE TABLE employee (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
@@ -30,3 +25,9 @@ CREATE TABLE employee (
     FOREIGN KEY (role_id) REFERENCES roles (id),
     FOREIGN KEY (manager_id) REFERENCES employee (id)
 );
+
+Show tables;
+SELECT "department" as `Table`, COUNT(*) AS `Rows` FROM `department`
+SELECT "role" as `Table`, COUNT(*) AS `Rows` FROM `roles`
+SELECT "employee" as `Table`, COUNT(*) AS `Rows` FROM `employee`
+

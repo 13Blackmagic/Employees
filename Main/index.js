@@ -19,6 +19,9 @@ const questions = [
             'View all departments',
             'View all roles',
             'View all employees',
+            'Add a department',
+            'Add a role',
+            'Add an employee',
             'Exit'
         ]
 
@@ -52,6 +55,12 @@ function run() {
                     return viewRoles();
                 case 'View all employees':
                     return viewEmployees();
+                case 'Add a department':
+                    return addDepartment();
+                case 'Add a role':
+                    return addRole();
+                case 'Add an employee':
+                    return addEmployee();
                 case 'Exit':
                     return exit();
             }
@@ -199,6 +208,110 @@ const viewEmployees = () => {
         run();
     });
 };
+
+const addDepartment = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of the department?'
+
+        }
+    ])
+        .then(response => {
+            const sql = `INSERT INTO departments (name) VALUES (?)`;
+            const params = [response.name];
+            db.query(sql, params, (err, result) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.log('Department added!');
+                run();
+            });
+        });
+};
+
+const addRole = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'title',
+            message: 'What is the title of the role?'
+
+        },
+
+        {
+            type: 'input',
+            name: 'salary',
+            message: 'What is the salary of the role?'
+
+        },
+
+        {
+            type: 'input',
+            name: 'department_id',
+            message: 'What is the department id of the role?'
+
+        }
+    ])
+        .then(response => {
+            const sql = `INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)`;
+            const params = [response.title, response.salary, response.department_id];
+            db.query(sql, params, (err, result) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.log('Role added!');
+                run();
+            });
+        }); 
+};
+
+const addEmployee = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'first_name',
+            message: 'What is the first name of the employee?'
+
+        },
+
+        {
+            type: 'input',
+            name: 'last_name',
+            message: 'What is the last name of the employee?'
+
+        },
+
+        {
+            type: 'input',
+            name: 'role_id',
+            message: 'What is the role id of the employee?'
+
+        },
+    ])
+        .then(response => {
+            const sql = `INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`;
+            const params = [response.first_name, response.last_name, response.role_id, response.manager_id];
+            db.query(sql, params, (err, result) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.log('Employee added!');
+                run();
+            });
+        });
+};
+
+
+const exit = () => {
+    console.log('Goodbye!');
+    process.exit();
+};
+
 
 // Express middleware
 // app.use(express.urlencoded({ extended: false }));
