@@ -1,3 +1,4 @@
+// This file contains the schema for the database and can be used to create the database and tables.
 DROP DATABASE IF EXISTS department_db;
 CREATE DATABASE department_db;
 

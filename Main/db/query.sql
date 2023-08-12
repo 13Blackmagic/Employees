@@ -1,3 +1,4 @@
+// This file contains the queries used to create the database and tables
 USE department_db;
 SELECT Departments.department_name, COUNT(*) AS 'Number of Employees'
 FROM Roles
