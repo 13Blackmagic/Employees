@@ -1,4 +1,4 @@
-// Seeds for the database
+
 USE department_db;
 INSERT INTO departments (department_name)
 VALUES ('Sales'),
@@ -6,7 +6,7 @@ VALUES ('Sales'),
        ('Finance'),
        ('Legal'),
        ('HR');
-// Seeds for the database
+
 INSERT INTO roles (title, salary, department_id)
 VALUES ('Sales Lead', 100000, 1),
        ('Salesperson', 80000, 1),
@@ -18,7 +18,7 @@ VALUES ('Sales Lead', 100000, 1),
        ('Lawyer', 190000, 4),
        ('HR Lead', 140000, 5),
        ('HR Representative', 90000, 5);
-// Seeds for the database
+
 INSERT INTO employee (first_name, last_name, role_id, manager_id)   
 VALUES ('John', 'Doe', 1, NULL),
        ('Mike', 'Chan', 2, 1),

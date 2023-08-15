@@ -174,7 +174,7 @@ const addEmployee = () => {
     ])
         // how to insert employees into the table in the terminal
         .then(response => {
-            const sql = `INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`;
+            const sql = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`;
             const params = [response.first_name, response.last_name, response.role_id, response.manager_id];
             db.query(sql, params, (err, result) => {
                 if (err) {
