@@ -86,7 +86,7 @@ const viewEmployees = () => {
         run();
     });
 };
-// how to get the table to display in the terminal
+// how to add a department to the table in the terminal
 const addDepartment = () => {
     inquirer.prompt([
         {
@@ -96,7 +96,7 @@ const addDepartment = () => {
 
         }
     ])
-    // how to get the table to display in the terminal
+    // how to save the department to the table in the terminal
         .then(response => {
             const sql = `INSERT INTO departments (name) VALUES (?)`;
             const params = [response.name];
@@ -110,7 +110,7 @@ const addDepartment = () => {
             });
         });
 };
- // how to add to the table in the terminal
+ // how to add roles to the table in the terminal
 const addRole = () => {
     inquirer.prompt([
         {
@@ -134,7 +134,7 @@ const addRole = () => {
 
         }
     ])
-        // how to insert roles into the table in the terminal
+        // how to insert roles into the table in the terminal and save it
         .then(response => {
             const sql = `INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)`;
             const params = [response.title, response.salary, response.department_id];
